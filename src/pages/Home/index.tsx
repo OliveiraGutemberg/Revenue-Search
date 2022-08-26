@@ -4,23 +4,15 @@ import "./styles.css"
 export function Home() {
 
   const [revenue, setRevenue] = useState<string>('')
-  const [prevRevenue, setPrevRevenue] = useState<PrevRevenue>({} as PrevRevenue)
-  const [revenueName, setRevenueName] = useState<PrevRevenue[]>([]);
-
-  function handleRevenueName() {
-    const newRevenue = {
-      nome: prevRevenue
-    }
-    setRevenueName(newRevenue)
-  }
+  const [prevRevenue, setPrevRevenue] = useState({} as ApiResponse)
 
   type ApiResponse = {
     nome: string;
-    secao: [];
+    secao: Array<{}>;
   }
 
   type PrevRevenue = {
-    nome: string
+    nome: string;
   }
 
   type ArrayRevenue = [{}]
@@ -29,15 +21,17 @@ export function Home() {
     async function fectchApi() {
       const response = await fetch('https://raw.githubusercontent.com/adrianosferreira/afrodite.json/master/afrodite.json');
       const data = await response.json(); 
-      const search: string = await data.find((element:ApiResponse) => element.nome.toLowerCase().includes(revenue) == true)
+      const search = await data.find((element:ApiResponse) => element.nome.toLowerCase().includes(revenue) == true)
       
-      setPrevRevenue({
-        nome: search
-      })
+      setPrevRevenue(
+        search
+      )
+    
     }
 
     fectchApi()
   }, [revenue])
+ //console.log(prevRevenue)
 
 
   return (
@@ -54,7 +48,7 @@ export function Home() {
 
       <button type="button">Pesquisar</button>
 
-      <h1>{prevRevenue}</h1>
+      <h1>{prevRevenue.nome}</h1>
 
     </div>
 
