@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import "./styles.css"
 
+import { Card, CardProps } from '../../components/Card';
+
 export function Home() {
 
   const [revenue, setRevenue] = useState<string>('')
-  const [prevRevenue, setPrevRevenue] = useState({} as ApiResponse)
+  const [keyTime, setkeyTime] = useState<string>();
+  const [arrayRevenue, setArrayRevenue] = useState<CardProps[]>([]);
 
   type ApiResponse = {
     nome: string;
@@ -21,16 +24,29 @@ export function Home() {
     async function fectchApi() {
       const response = await fetch('https://raw.githubusercontent.com/adrianosferreira/afrodite.json/master/afrodite.json');
       const data = await response.json(); 
-      const search = await data.find((element:ApiResponse) => element.nome.toLowerCase().includes(revenue) == true)
+
+      if(!arrayRevenue.find(element => element.nome.toLocaleLowerCase().startsWith(revenue))){
+        const search:CardProps = await data.find((element:ApiResponse) => element.nome.toLowerCase().includes(revenue))
+
+        const objectRevenue = {
+          nome: search.nome
+        }
+  
+        setArrayRevenue(prev => [...prev, objectRevenue])
+      }
+
+          //console.log(arrayRevenue)
+
+          //setArrayRevenue(prevState => [newRevenue])
+
+          //setkeyTime(newRevenue.time)
       
-      setPrevRevenue(
-        search
-      )
-    
     }
+    
 
     fectchApi()
-  }, [revenue])
+  }, [revenue]);
+
  //console.log(prevRevenue)
 
 
@@ -48,7 +64,14 @@ export function Home() {
 
       <button type="button">Pesquisar</button>
 
-      <h1>{prevRevenue.nome}</h1>
+      {
+        arrayRevenue.map(revenue => (
+              <Card
+              key= {keyTime}// Gerar um novo key************************
+              nome={revenue.nome}
+              />
+        ))
+      }
 
     </div>
 
