@@ -24,17 +24,41 @@ export function Home() {
     async function fectchApi() {
       const response = await fetch('https://raw.githubusercontent.com/adrianosferreira/afrodite.json/master/afrodite.json');
       const data = await response.json(); 
+      const search = await data.filter((element:ApiResponse) => element.nome.toLowerCase().includes(revenue))
+      if(!search){
+        return
+      }
+      if(revenue.length < 4){
+        setArrayRevenue([])
+      } else{
+        setArrayRevenue(search)
+      }
 
+      /*
+      if(!arrayRevenue.filter(element => element.nome.toLocaleLowerCase().includes(revenue))){
+        //arrayRevenue.push(search)
+        //setArrayRevenue([search])
+      }*/
+
+    
+
+      //setArrayRevenue(arrayRevenue)
+      /*
       if(!arrayRevenue.find(element => element.nome.toLocaleLowerCase().startsWith(revenue))){
         const search:CardProps = await data.find((element:ApiResponse) => element.nome.toLowerCase().includes(revenue))
 
+        
         const objectRevenue = {
           nome: search.nome
         }
-  
-        setArrayRevenue(prev => [...prev, objectRevenue])
-      }
+        console.log(arrayRevenue)
 
+        for(var i = 0; i == 0 || i < arrayRevenue.length; i++) {
+          setArrayRevenue(prev => [...prev, objectRevenue])
+        }
+      } */
+
+      
           //console.log(arrayRevenue)
 
           //setArrayRevenue(prevState => [newRevenue])
