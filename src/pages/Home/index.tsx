@@ -3,12 +3,15 @@ import "./styles.css"
 
 import { Card, CardProps } from '../../components/Card';
 import { Link } from 'react-router-dom';
+import { fetchApi2 } from '../../fetch'
 
 export function Home() {
-
+  //fetchApi2() // Esta gerando o array sem parar
   const [revenue, setRevenue] = useState<string>('')
   const [keyTime, setkeyTime] = useState<string>();
   const [arrayRevenue, setArrayRevenue] = useState<CardProps[]>([]);
+  
+
 
   type ApiResponse = {
     _id: string;
