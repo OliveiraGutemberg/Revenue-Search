@@ -1,0 +1,11 @@
+.receita {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.receita h1 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

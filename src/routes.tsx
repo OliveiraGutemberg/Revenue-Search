@@ -5,9 +5,10 @@
     // Route - Componente que associa a rota ao componente. Nele temos três parâmetros: component, path e exact.
     // Link - Fuciona como a tag <a> para "lincar" algum elemento.
 import React from 'react';
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {Home} from './pages/Home';
 import {Receitas} from './pages/Receitas';
+import "./styles/global.css"
 
 // Função responsavel por indicar a rota de cada componente
 export function Rotas() {

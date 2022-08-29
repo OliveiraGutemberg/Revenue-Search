@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./styles.css"
 
 import { Card, CardProps } from '../../components/Card';
+import { Link } from 'react-router-dom';
 
 export function Home() {
 
@@ -10,6 +11,7 @@ export function Home() {
   const [arrayRevenue, setArrayRevenue] = useState<CardProps[]>([]);
 
   type ApiResponse = {
+    _id: string;
     nome: string;
     secao: Array<{}>;
   }
@@ -32,47 +34,12 @@ export function Home() {
         setArrayRevenue([])
       } else{
         setArrayRevenue(search)
-      }
+      }  
 
-      /*
-      if(!arrayRevenue.filter(element => element.nome.toLocaleLowerCase().includes(revenue))){
-        //arrayRevenue.push(search)
-        //setArrayRevenue([search])
-      }*/
-
-    
-
-      //setArrayRevenue(arrayRevenue)
-      /*
-      if(!arrayRevenue.find(element => element.nome.toLocaleLowerCase().startsWith(revenue))){
-        const search:CardProps = await data.find((element:ApiResponse) => element.nome.toLowerCase().includes(revenue))
-
-        
-        const objectRevenue = {
-          nome: search.nome
-        }
-        console.log(arrayRevenue)
-
-        for(var i = 0; i == 0 || i < arrayRevenue.length; i++) {
-          setArrayRevenue(prev => [...prev, objectRevenue])
-        }
-      } */
-
-      
-          //console.log(arrayRevenue)
-
-          //setArrayRevenue(prevState => [newRevenue])
-
-          //setkeyTime(newRevenue.time)
-      
     }
     
-
     fectchApi()
-  }, [revenue]);
-
- //console.log(prevRevenue)
-
+  }, [revenue]); 
 
   return (
     <div className="container">
@@ -90,14 +57,16 @@ export function Home() {
 
       {
         arrayRevenue.map(revenue => (
-              <Card
-              key= {keyTime}// Gerar um novo key************************
+          <Link className='card' target={'_blank'} to={'/receitas'}>
+            <Card
+              key= {revenue._id.$oid}
               nome={revenue.nome}
+              _id={revenue._id.$oid}
               />
+          </Link>
         ))
       }
-
-    </div>
+  </div>
 
   )
 }
