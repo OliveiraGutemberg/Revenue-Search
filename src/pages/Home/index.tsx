@@ -5,7 +5,6 @@ import { Card, CardProps } from '../../components/Card';
 import { Link } from 'react-router-dom';
 
 export function Home() {
-  //fetchApi2() // Esta gerando o array sem parar
   const [revenue, setRevenue] = useState<string>('')
   const [keyTime, setkeyTime] = useState<string>();
   const [arrayRevenue, setArrayRevenue] = useState<CardProps[]>([]);
