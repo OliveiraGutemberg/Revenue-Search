@@ -7,11 +7,9 @@ export type CardProps = {
 
 export function Card(props: CardProps) {
   return (
-        <div className='card-body'>
+        <div className='card-body pink'>
           <p><b>{props.nome}</b></p>
           <p hidden><b>{props._id}</b></p>
         </div>
   )
 }
-// Descobrir como criar rotas com parametros(rota/rota:parametro) em react.
-// Usar o id da receita como parametro na rota para acessa-lo na segunda page.

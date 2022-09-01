@@ -18,5 +18,20 @@
 .card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    padding: 1.25rem;
+    padding: 1.2rem;
+
+    border-radius: 5px;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    margin: 0px;
+    width: 100%;
+    transition: all 0.3s ease-out;
+  }
+
+  .cardRevenue-body {
+    border-radius: 5px;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    padding: 30px;
+    margin: 20px;
+    width: 100%;
+    transition: all 0.3s ease-out;
   }

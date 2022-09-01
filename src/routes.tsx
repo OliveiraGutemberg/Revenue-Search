@@ -10,13 +10,15 @@ import {Home} from './pages/Home';
 import {Receitas} from './pages/Receitas';
 import "./styles/global.css"
 
+import { CardProps } from './components/Card';
+
 // Função responsavel por indicar a rota de cada componente
 export function Rotas() {
     return(
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Home/>}></Route>
-                <Route path='/receitas' element={<Receitas/>}></Route>
+                <Route path='/receitas/:id' element={<Receitas/>}></Route>
             </Routes>
         </BrowserRouter>
     )

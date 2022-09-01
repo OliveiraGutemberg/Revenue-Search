@@ -1,22 +1,41 @@
-.card {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.5rem;
-    width: 50%;
-    font-size: 1.3rem;
-    margin: 0.2rem;
-  }
+.cardRevenue {
 
-.card-body {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 1.25rem;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+    
+}
+
+.cardRevenue-body {
+  border-radius: 5px;
+  box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+  padding: 30px;
+  margin: 20px;
+  width: 100%;
+  transition: all 0.3s ease-out;
+}
+
+.cardRevenue-body p {
+  font-size: 1.3rem;
+}
+
+.cardRevenue-body h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #EA4C89;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+}
+
+.cardRevenue-body:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+  
+.pink {
+    border-left: 3px solid #EA4C89;
+}

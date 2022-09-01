@@ -3,7 +3,6 @@ import "./styles.css"
 
 import { Card, CardProps } from '../../components/Card';
 import { Link } from 'react-router-dom';
-import { fetchApi2 } from '../../fetch'
 
 export function Home() {
   //fetchApi2() // Esta gerando o array sem parar
@@ -55,12 +54,10 @@ export function Home() {
       placeholder="Digite o nome da receita"
       onChange={e => setRevenue(e.target.value)}
       />
-
-      <button type="button">Pesquisar</button>
-
+      <br />
       {
         arrayRevenue.map(revenue => (
-          <Link className='card' target={'_blank'} to={'/receitas'}>
+          <Link className='cardHome' style={{textDecoration: 'none'}} target={'_blank'} to={`receitas/${revenue._id !== undefined ? revenue._id.$oid : null}`}>
             <Card
               key= {revenue._id.$oid}
               nome={revenue.nome}
