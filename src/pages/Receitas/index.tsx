@@ -22,7 +22,6 @@ export function Receitas(){
         }
         
         fectchApi()
-        console.log(revenue)
       }, []); 
 
     return(

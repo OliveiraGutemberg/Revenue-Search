@@ -28,6 +28,7 @@ export function Home() {
       const response = await fetch('https://raw.githubusercontent.com/adrianosferreira/afrodite.json/master/afrodite.json');
       const data = await response.json(); 
       const search = await data.filter((element:ApiResponse) => element.nome.toLowerCase().includes(revenue))
+      console.log(search)
       if(!search){
         return
       }
@@ -38,9 +39,10 @@ export function Home() {
       }  
 
     }
-    
+
     fectchApi()
   }, [revenue]); 
+
 
   return (
     <div className="container">
