@@ -29,7 +29,7 @@
 </h1>
 
 # Prerequisites
-To get started you need to have the [Git](https://git-scm.com/), NodeJS and MongoDB tools installed on your machine. You also need an editor to work with code like [VSCode](https://code.visualstudio.com/).
+To get started you need to have the [Git](https://git-scm.com/) and NodeJS tools installed on your machine. You also need an editor to work with code like [VSCode](https://code.visualstudio.com/).
 
 ### Technologies
 - HTML
